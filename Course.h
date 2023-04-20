@@ -1,8 +1,11 @@
 #pragma once
 #include<vector>
 #include<iostream>
+#include<unordered_map>
 using namespace std;
 using namespace System;
+using namespace System::Collections::Generic;
+
 
 ref class Course
 {
@@ -14,8 +17,13 @@ private:
 	bool isRequirement;
 	int maxNumberOfStudents;
 	int hours;
-	vector<vector<Course>>*preRequires;
+
 public:
+	//static adjacency list for course prerequirements
+	//static unordered_map<string, vector<string>>* preRequires;
+	//static List<List<int>^>^ preRequires;
+	static Dictionary<String^, List<String^>^> ^preRequires;
+	//constructor
 	Course();
 	Course(String^ name, String^ code, String^ instructor, bool isRequirement, int maxNumberOfStudents, int hours);
 

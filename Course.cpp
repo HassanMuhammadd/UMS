@@ -18,7 +18,6 @@ Course::Course(String^ name, String^ code, String^ instructor, bool isRequiremen
 	this->isRequirement = isRequirement;
 	this->maxNumberOfStudents = maxNumberOfStudents;
 	this->hours = hours;
-	
 }
 
 void Course::setName(String^ name) {

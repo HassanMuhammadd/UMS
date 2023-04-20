@@ -1,4 +1,3 @@
-Introduction to computer science
-Structured Programming
-Math 1
-Math 2
+Structured Programming-intro to cs,Math1,Math0
+Electronics-Physics I
+Archi-Logic Design,Electronics
