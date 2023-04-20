@@ -2,7 +2,7 @@
 #include "Course.h"
 Course::Course()
 {
-	name = "";
+	name = "3esh2";
 	code = "";
 	instructor = "";
 	isRequirement = true;
