@@ -316,9 +316,13 @@ namespace CppCLRWinFormsProject {
 		int maxStudents = System::Convert::ToInt32(maxStudentsTextBox->Text);
 		String^ instructor = instructorTextBox->Text;
 		String^ prereqStr = prereqTextBox->Text;
+
 		cli::array<String^>^ prerequisiteArray = prereqStr->Split(',');
-		List<String^>^ prerequisitesList = prerequisiteArray->ToList();
-		
+		List<String^>^ prerequisitesList = gcnew List<String^>();
+
+		for each (String ^ str in prerequisiteArray) {
+			prerequisitesList->Add(str);
+		}
 
 		// Create a new instance of the Course class
 		Course^ newCourse = gcnew Course();
