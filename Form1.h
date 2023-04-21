@@ -1,5 +1,5 @@
 #pragma once
-#using <mscorlib.dll>
+//#using <mscorlib.dll>
 #include"Course.h"
 #include<string>
 #include<fstream>
@@ -74,15 +74,54 @@ void addCourse(Course^ newCourse) { //farah and maya
 	Course::preRequires->Add(courseName, prerequisites);
 
 }
-void saveCourseDataToFile() {
-	/*
-	TO DO = > Maya and Farah:
+void saveCourseDataToFile() {//Maya and Farah:
 
-    add the data to the file in the following format:
-	key of the Dictionary , then "-" , then the preRequirements separated by "," .
-	ex: Archi-Logic Design,Electronics
+	// Open the output file
+	ofstream outFile("coursesData.txt");
 
-	*/
+	// Loop through each course in the dictionary
+	for each (auto i in Course::preRequires) 
+	{
+		// Get the course name and prerequisites for the current course
+		String^ courseName = i.first;
+		List<String^>^ prerequisites = i.second;
+
+		// Convert course name to std::string
+		std::string courseNameStr;
+		for each (wchar_t c in courseName)
+		{
+			courseNameStr += static_cast<char>(c);
+		}
+
+		// Convert prerequisites to std::string
+		std::string prereqsStr;
+		for each (String ^ prereq in prerequisites)
+		{
+			// Separate prerequisites with commas
+			if (!prereqsStr.empty())
+			{
+				prereqsStr += ",";
+			}
+			std::string prereqStr;
+			for each (wchar_t c in prereq)
+			{
+				prereqStr += static_cast<char>(c);
+			}
+			prereqsStr += prereqStr;
+
+		}
+
+		// Construct the output string
+		std::string outputStr = courseNameStr + "-" + prereqsStr + "\n";
+
+		// Write the output string to the file
+		outFile << outputStr;
+	}
+
+	// Close the output file
+	outFile.close();
+
+
 }
 
 namespace CppCLRWinFormsProject {
@@ -334,6 +373,7 @@ namespace CppCLRWinFormsProject {
 		newCourse->setInstructor(instructor);
 		newCourse->setPrerequisites(prerequisitesList);
 
+		//addCourse(newCourse);
 
 
 	}
