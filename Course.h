@@ -17,6 +17,7 @@ private:
 	bool isRequirement;
 	int maxNumberOfStudents;
 	int hours;
+	List<String^>^ prerequisites; // new member variable to store prerequisite course names
 
 public:
 	//static adjacency list for course prerequirements
@@ -35,6 +36,7 @@ public:
 	void setIsRequirement(bool isRequirement);
 	void setMaxNumberOfStudents(int maxNumberOfStudents);
 	void setHours(int hours);
+	void setPrerequisites(List<String^>^ prerequisites);
 	
 	String^ getName();
 	String^ getCode();
@@ -42,6 +44,7 @@ public:
 	bool getIsRequirement();
 	int getMaxNumberOfStudents();
 	int getHours();
+	List<String^>^ getPrerequisites();
 };
 
 

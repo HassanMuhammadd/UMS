@@ -8,6 +8,7 @@ Course::Course()
 	isRequirement = true;
 	maxNumberOfStudents = 1000;
 	hours = 0;
+	List<String^>^ prerequisites; // new member variable to store prerequisite course name
 }
 
 Course::Course(String^ name, String^ code, String^ instructor, bool isRequirement, int maxNumberOfStudents, int hours)
@@ -18,6 +19,7 @@ Course::Course(String^ name, String^ code, String^ instructor, bool isRequiremen
 	this->isRequirement = isRequirement;
 	this->maxNumberOfStudents = maxNumberOfStudents;
 	this->hours = hours;
+	this->prerequisites = gcnew List<String^>(); // initialize list of prerequisites
 }
 
 void Course::setName(String^ name) {
@@ -38,6 +40,10 @@ void Course::setMaxNumberOfStudents( int maxNumberOfStudents) {
 void Course::setHours( int hours) {
 	this->hours= hours;
 }
+void Course::setPrerequisites(List<String^>^ prerequisites)
+{
+	this->prerequisites = prerequisites;
+}
 String^ Course::getName() {
 	return name;
 }
@@ -56,4 +62,10 @@ int Course::getMaxNumberOfStudents() {
 }
 int Course::getHours() {
 	return hours;
+}
+
+// Method to retrieve the list of prerequisite course names
+List<String^>^ Course::getPrerequisites()
+{
+	return this->prerequisites;
 }
