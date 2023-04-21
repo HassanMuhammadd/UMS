@@ -61,7 +61,7 @@ void loadCourseDataFromFile() {
 }
 
 void addCourse(Course^ newCourse) { //farah and maya
-	
+
 	String^ courseName = newCourse->getName();
 	List<String^>^ prerequisites = newCourse->getPrerequisites();
 
@@ -74,6 +74,7 @@ void addCourse(Course^ newCourse) { //farah and maya
 	Course::preRequires->Add(courseName, prerequisites);
 
 }
+
 void saveCourseDataToFile() {//Maya and Farah:
 
 	// Open the output file
@@ -83,8 +84,8 @@ void saveCourseDataToFile() {//Maya and Farah:
 	for each (auto i in Course::preRequires) 
 	{
 		// Get the course name and prerequisites for the current course
-		String^ courseName = i.first;
-		List<String^>^ prerequisites = i.second;
+		String^ courseName = i.Key;
+		List<String^>^ prerequisites = i.Value;
 
 		// Convert course name to std::string
 		std::string courseNameStr;
@@ -137,6 +138,8 @@ namespace CppCLRWinFormsProject {
 	/// <summary>
 	/// Summary for Form1
 	/// </summary>
+	///
+	
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 
@@ -148,7 +151,7 @@ namespace CppCLRWinFormsProject {
 			//TODO: Add the constructor code here
 			//
 		}
-
+		
 	protected:
 		/// <summary>
 		/// Clean up any resources being used.
@@ -162,7 +165,8 @@ namespace CppCLRWinFormsProject {
 			}
 		}
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ addCourse;
+	private: System::Windows::Forms::Button^ addCourseBtn;
+
 
 
 	protected:
@@ -197,7 +201,7 @@ namespace CppCLRWinFormsProject {
 		void InitializeComponent(void)
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->addCourse = (gcnew System::Windows::Forms::Button());
+			this->addCourseBtn = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->nameTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
@@ -213,110 +217,119 @@ namespace CppCLRWinFormsProject {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(30, 30);
-			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+			this->label1->Location = System::Drawing::Point(40, 37);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(62, 13);
+			this->label1->Size = System::Drawing::Size(78, 16);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Add Course";
 			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
-			// addCourse
+			// addCourseBtn
 			// 
-			this->addCourse->Location = System::Drawing::Point(189, 281);
-			this->addCourse->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
-			this->addCourse->Name = L"addCourse";
-			this->addCourse->Size = System::Drawing::Size(104, 45);
-			this->addCourse->TabIndex = 1;
-			this->addCourse->Text = L"ADD";
-			this->addCourse->UseVisualStyleBackColor = true;
-			this->addCourse->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
+			this->addCourseBtn->Location = System::Drawing::Point(252, 346);
+			this->addCourseBtn->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->addCourseBtn->Name = L"addCourseBtn";
+			this->addCourseBtn->Size = System::Drawing::Size(139, 55);
+			this->addCourseBtn->TabIndex = 1;
+			this->addCourseBtn->Text = L"ADD";
+			this->addCourseBtn->UseVisualStyleBackColor = true;
+			this->addCourseBtn->Click += gcnew System::EventHandler(this, &Form1::button1_Click);
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(52, 83);
+			this->label2->Location = System::Drawing::Point(69, 102);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(74, 13);
+			this->label2->Size = System::Drawing::Size(93, 16);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Course Name:";
 			// 
 			// nameTextBox
 			// 
-			this->nameTextBox->Location = System::Drawing::Point(132, 80);
+			this->nameTextBox->Location = System::Drawing::Point(176, 98);
+			this->nameTextBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->nameTextBox->Name = L"nameTextBox";
-			this->nameTextBox->Size = System::Drawing::Size(100, 20);
+			this->nameTextBox->Size = System::Drawing::Size(132, 22);
 			this->nameTextBox->TabIndex = 3;
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(68, 113);
+			this->label3->Location = System::Drawing::Point(91, 139);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(38, 13);
+			this->label3->Size = System::Drawing::Size(46, 16);
 			this->label3->TabIndex = 4;
 			this->label3->Text = L"Hours:";
 			// 
 			// hoursTextBox
 			// 
-			this->hoursTextBox->Location = System::Drawing::Point(132, 113);
+			this->hoursTextBox->Location = System::Drawing::Point(176, 139);
+			this->hoursTextBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->hoursTextBox->Name = L"hoursTextBox";
-			this->hoursTextBox->Size = System::Drawing::Size(100, 20);
+			this->hoursTextBox->Size = System::Drawing::Size(132, 22);
 			this->hoursTextBox->TabIndex = 5;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(51, 150);
+			this->label4->Location = System::Drawing::Point(68, 185);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(75, 13);
+			this->label4->Size = System::Drawing::Size(90, 16);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Max Students:";
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(68, 181);
+			this->label5->Location = System::Drawing::Point(91, 223);
+			this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(54, 13);
+			this->label5->Size = System::Drawing::Size(63, 16);
 			this->label5->TabIndex = 7;
 			this->label5->Text = L"Instructor:";
 			// 
 			// label6
 			// 
 			this->label6->AutoSize = true;
-			this->label6->Location = System::Drawing::Point(56, 217);
+			this->label6->Location = System::Drawing::Point(75, 267);
+			this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(70, 13);
+			this->label6->Size = System::Drawing::Size(89, 16);
 			this->label6->TabIndex = 8;
 			this->label6->Text = L"Prerequisites:";
 			// 
 			// maxStudentsTextBox
 			// 
-			this->maxStudentsTextBox->Location = System::Drawing::Point(132, 150);
+			this->maxStudentsTextBox->Location = System::Drawing::Point(176, 185);
+			this->maxStudentsTextBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->maxStudentsTextBox->Name = L"maxStudentsTextBox";
-			this->maxStudentsTextBox->Size = System::Drawing::Size(100, 20);
+			this->maxStudentsTextBox->Size = System::Drawing::Size(132, 22);
 			this->maxStudentsTextBox->TabIndex = 9;
 			// 
 			// instructorTextBox
 			// 
-			this->instructorTextBox->Location = System::Drawing::Point(132, 181);
+			this->instructorTextBox->Location = System::Drawing::Point(176, 223);
+			this->instructorTextBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->instructorTextBox->Name = L"instructorTextBox";
-			this->instructorTextBox->Size = System::Drawing::Size(100, 20);
+			this->instructorTextBox->Size = System::Drawing::Size(132, 22);
 			this->instructorTextBox->TabIndex = 10;
 			// 
 			// prereqTextBox
 			// 
-			this->prereqTextBox->Location = System::Drawing::Point(132, 217);
+			this->prereqTextBox->Location = System::Drawing::Point(176, 267);
+			this->prereqTextBox->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->prereqTextBox->Name = L"prereqTextBox";
-			this->prereqTextBox->Size = System::Drawing::Size(100, 20);
+			this->prereqTextBox->Size = System::Drawing::Size(132, 22);
 			this->prereqTextBox->TabIndex = 11;
 			// 
 			// Form1
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(632, 402);
+			this->ClientSize = System::Drawing::Size(843, 495);
 			this->Controls->Add(this->prereqTextBox);
 			this->Controls->Add(this->instructorTextBox);
 			this->Controls->Add(this->maxStudentsTextBox);
@@ -327,9 +340,9 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->nameTextBox);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->addCourse);
+			this->Controls->Add(this->addCourseBtn);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->ResumeLayout(false);
@@ -372,10 +385,8 @@ namespace CppCLRWinFormsProject {
 		newCourse->setMaxNumberOfStudents(maxStudents);
 		newCourse->setInstructor(instructor);
 		newCourse->setPrerequisites(prerequisitesList);
-
-		//addCourse(newCourse);
-
-
+		
+		addCourse(newCourse);
 	}
 	};
 }
