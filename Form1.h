@@ -53,7 +53,7 @@ void loadCourseDataFromFile() {
 		}
 
 		String^ mo3ak = gcnew String(cName.c_str());
-		//Course::preRequires->Add(mo3ak,preReq);
+		Course::preRequires->Add(mo3ak,preReq);
 		
 	}
 
@@ -61,7 +61,6 @@ void loadCourseDataFromFile() {
 }
 
 void addCourse(Course^ newCourse) { //farah and maya
-
 	String^ courseName = newCourse->getName();
 	List<String^>^ prerequisites = newCourse->getPrerequisites();
 
@@ -201,6 +200,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Label^ label13;
+
 
 
 
@@ -243,15 +244,18 @@ namespace CppCLRWinFormsProject {
 			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Monotype Koufi", 10, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->label1->Location = System::Drawing::Point(12, 53);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(78, 16);
+			this->label1->Size = System::Drawing::Size(96, 19);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Add Course";
 			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
@@ -270,7 +274,7 @@ namespace CppCLRWinFormsProject {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(69, 102);
+			this->label2->Location = System::Drawing::Point(71, 98);
 			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(93, 16);
@@ -288,7 +292,7 @@ namespace CppCLRWinFormsProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(91, 139);
+			this->label3->Location = System::Drawing::Point(108, 139);
 			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(46, 16);
@@ -306,7 +310,7 @@ namespace CppCLRWinFormsProject {
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(68, 185);
+			this->label4->Location = System::Drawing::Point(69, 185);
 			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(90, 16);
@@ -361,19 +365,19 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->radioButton1->AutoSize = true;
 			this->radioButton1->Checked = true;
-			this->radioButton1->Location = System::Drawing::Point(500, 113);
+			this->radioButton1->Location = System::Drawing::Point(500, 124);
 			this->radioButton1->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(97, 20);
+			this->radioButton1->Size = System::Drawing::Size(105, 20);
 			this->radioButton1->TabIndex = 12;
 			this->radioButton1->TabStop = true;
-			this->radioButton1->Text = L"Requirment";
+			this->radioButton1->Text = L"Requirement";
 			this->radioButton1->UseVisualStyleBackColor = true;
 			// 
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(500, 143);
+			this->radioButton2->Location = System::Drawing::Point(500, 152);
 			this->radioButton2->Margin = System::Windows::Forms::Padding(4);
 			this->radioButton2->Name = L"radioButton2";
 			this->radioButton2->Size = System::Drawing::Size(76, 20);
@@ -384,17 +388,17 @@ namespace CppCLRWinFormsProject {
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(496, 94);
+			this->label7->Location = System::Drawing::Point(497, 93);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(215, 16);
+			this->label7->Size = System::Drawing::Size(230, 16);
 			this->label7->TabIndex = 14;
-			this->label7->Text = L"is this course requirment or elective";
+			this->label7->Text = L"Is this course Requirement or Elective";
 			this->label7->Click += gcnew System::EventHandler(this, &Form1::label7_Click);
 			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
-			this->label8->Location = System::Drawing::Point(75, 327);
+			this->label8->Location = System::Drawing::Point(113, 313);
 			this->label8->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(41, 16);
@@ -403,7 +407,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// codeTextBox
 			// 
-			this->codeTextBox->Location = System::Drawing::Point(176, 319);
+			this->codeTextBox->Location = System::Drawing::Point(176, 313);
 			this->codeTextBox->Margin = System::Windows::Forms::Padding(4);
 			this->codeTextBox->Name = L"codeTextBox";
 			this->codeTextBox->Size = System::Drawing::Size(132, 22);
@@ -412,7 +416,7 @@ namespace CppCLRWinFormsProject {
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::White;
+			this->label9->BackColor = System::Drawing::SystemColors::Control;
 			this->label9->ForeColor = System::Drawing::Color::Red;
 			this->label9->Location = System::Drawing::Point(330, 374);
 			this->label9->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -425,7 +429,7 @@ namespace CppCLRWinFormsProject {
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->BackColor = System::Drawing::Color::White;
+			this->label10->BackColor = System::Drawing::SystemColors::Control;
 			this->label10->ForeColor = System::Drawing::Color::Red;
 			this->label10->Location = System::Drawing::Point(316, 142);
 			this->label10->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -438,7 +442,7 @@ namespace CppCLRWinFormsProject {
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->BackColor = System::Drawing::Color::White;
+			this->label11->BackColor = System::Drawing::SystemColors::Control;
 			this->label11->ForeColor = System::Drawing::Color::Red;
 			this->label11->Location = System::Drawing::Point(317, 188);
 			this->label11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
@@ -464,12 +468,12 @@ namespace CppCLRWinFormsProject {
 			// label12
 			// 
 			this->label12->AutoSize = true;
-			this->label12->Font = (gcnew System::Drawing::Font(L"Britannic Bold", 11, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
+			this->label12->Font = (gcnew System::Drawing::Font(L"DecoType Naskh Variants", 11, System::Drawing::FontStyle::Italic, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label12->ForeColor = System::Drawing::SystemColors::HotTrack;
-			this->label12->Location = System::Drawing::Point(289, 9);
+			this->label12->Location = System::Drawing::Point(261, 9);
 			this->label12->Name = L"label12";
-			this->label12->Size = System::Drawing::Size(264, 21);
+			this->label12->Size = System::Drawing::Size(283, 23);
 			this->label12->TabIndex = 3;
 			this->label12->Text = L"Universty Management System";
 			// 
@@ -514,11 +518,25 @@ namespace CppCLRWinFormsProject {
 			this->button1->TabIndex = 0;
 			this->button1->UseVisualStyleBackColor = true;
 			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->BackColor = System::Drawing::SystemColors::Control;
+			this->label13->ForeColor = System::Drawing::Color::Blue;
+			this->label13->Location = System::Drawing::Point(343, 470);
+			this->label13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(175, 16);
+			this->label13->TabIndex = 21;
+			this->label13->Text = L"Course Added Successfully!";
+			this->label13->Visible = false;
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(843, 495);
+			this->Controls->Add(this->label13);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
@@ -563,7 +581,7 @@ namespace CppCLRWinFormsProject {
 	}
 	
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
+		label13->Visible = false;
 		// All textboxes are filled, don't show the label massege
 
 		if (nameTextBox->Text->Length > 0 &&
@@ -652,7 +670,7 @@ namespace CppCLRWinFormsProject {
 			{
 				newCourse->setIsRequirement(false);
 			}
-
+			label13->Visible = true;
 			addCourse(newCourse);
 	}
 

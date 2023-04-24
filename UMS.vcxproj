@@ -130,6 +130,7 @@
     <ResourceCompile Include="app.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
@@ -138,6 +139,7 @@
     <ClInclude Include="Resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
