@@ -173,7 +173,6 @@ namespace CppCLRWinFormsProject {
 	private:
 		/// <summary>
 		/// Required designer variable.
-			List<String^>v;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::TextBox^ nameTextBox;
 	private: System::Windows::Forms::Label^ label3;

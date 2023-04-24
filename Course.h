@@ -18,11 +18,11 @@ private:
 	int maxNumberOfStudents;
 	int hours;
 	List<String^>^ prerequisites; // new member variable to store prerequisite course names
-
+	
+	//To Add : List of students in each course 
 public:
+
 	//static adjacency list for course prerequirements
-	//static unordered_map<string, vector<string>>* preRequires;
-	//static List<List<int>^>^ preRequires;
 	static Dictionary<String^, List<String^>^> ^preRequires;
 	//constructor
 	Course();
